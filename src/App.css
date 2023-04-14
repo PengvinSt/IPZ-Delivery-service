@@ -1,0 +1,23 @@
+:root {
+    --color-addition:#FFFFFF;
+    --color-text:#1d1d1d;
+    --color-text-addition:#797575;
+    --color-button-addition:#FF5C28;
+    --color-button:#D82015;
+    --color-bg-addition:#F3F3F3;
+    --color-bg-addition2:wheat;
+    --color-bg-main:#FEFEFE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
