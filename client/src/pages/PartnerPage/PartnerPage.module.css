@@ -1,0 +1,142 @@
+/*-----------------------------Main-----------------------------------*/
+.main-page-partner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-main);
+    align-items: center;
+    padding: 20px;
+}
+.partner-form {
+    border-radius: 30px;
+    width: 40%;
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    background: var(--color-bg-addition);
+    padding: 20px;
+}
+.partner-form-logo {
+    font-size: 2em;
+    padding: 20px;
+    color: var(--color-button-addition);
+}
+.partner-form-input {
+    border-radius: 30px;
+    background-color: var(--color-bg-main);
+    height: 80%;
+    width: 50%;
+}
+
+/*-----------------------------Form-----------------------------------*/
+
+.login-form {
+    
+    height: 400px;
+    width: 350px;
+    padding: 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.login-form h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 15px;
+    color: var(--color-button-addition);
+}
+.input-form {
+    position: relative;
+    margin-top: 35px;
+    border-bottom: 2px solid var(--color-button-addition);
+}
+.input-form input {
+    width: 100%;
+    outline: none;
+    border: none;
+    color: var(--color-button-addition);
+    font-size: 1.4em;
+    background: transparent;
+    height:40px;
+    padding-left: 5px;
+}
+.input-form i {
+    position: absolute;
+    right: 5px;
+    top:8px;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.input-form i:hover,
+.input-form label:hover
+{
+    color:var(--color-button-addition)
+}
+.input-form label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition:.5s;
+
+}
+
+.forgot-form {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    gap: 50px;
+}
+
+.forgot-form label,
+.forgot-form a {
+    text-decoration: none;
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 0.90em;
+}
+.forgot-form label:hover,
+.forgot-form a:hover {
+    color: var(--color-button);
+}
+.submit-form {
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 70%;
+    text-align: center;
+    font-size: 1.7em;
+    border-radius: 30px;
+    margin-top: 20px;
+    background-color: var(--color-button-addition);
+    color: var(--color-addition);
+    font-weight: 700;
+    cursor: pointer;
+}
+.submit-form:hover {
+    background-color: var(--color-button);
+}
+.register-form {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    gap: 25px;
+}
+.register-form label,
+.register-form a {
+    text-decoration: none;
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 0.90em;
+}
+.register-form label {
+    cursor:default;
+}
+.register-form a:hover {
+    color: var(--color-button);
+}
