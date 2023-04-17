@@ -6,11 +6,15 @@ import {makeAutoObservable} from "mobx"
 
 export default class StoreUser {
     user={}
-    // response="";
+    partners = []
     role = "";
     isAuth = false;
     constructor(){
         makeAutoObservable(this);
+    }
+
+    setPartners(partners){
+        this.partners = partners;
     }
 
     setAuth(bool) { 
@@ -31,31 +35,18 @@ export default class StoreUser {
         try {
             const res = await AuthService.login(username,password)
             localStorage.setItem('token', res.data.accessToken);
-
             this.setAuth(true);
             this.setUser(res.data.user);
             this.setRole(res.data.user.roles[0])
-            console.log(res.data.user.roles[0])
-            console.log(res);
-            console.log(this.user)
-            console.log(this.isAuth)
-            console.log(this.role)
         } catch (error) {
-            console.log(error.response.data.message)
             this.setError(error.response.data.message)
         }
     }
     async registration(username,email,password){
         try {
             const res = await AuthService.registration(username,email,password)
-
             console.log(res);
-            console.log(this.user)
-            console.log(this.isAuth)
-            console.log(res.data.user.roles[0])
-
         } catch (error) {
-            console.log(error.response.data)
             this.setError(error.response.data)
         }
     }
@@ -67,11 +58,7 @@ export default class StoreUser {
             this.setUser({});
             localStorage.clear()
             console.log(res);
-            console.log(this.role)
-            // console.log(this.user)
-            // console.log(this.isAuth)
         } catch (error) {
-            console.log(error.response.data)
             this.setError(error.response.data)
         }
     }
@@ -79,18 +66,40 @@ export default class StoreUser {
     async checkAuth() {
         try {
             const res = await axios.get(`${API_URL}/user/refresh`, {withCredentials: true})
-
-
             localStorage.setItem('token', res.data.accessToken);
             this.setAuth(true);
             this.setUser(res.data.user);
             this.setRole(res.data.user.roles[0])
             console.log(res);
-            console.log(this.user)
-            console.log(this.role)
-            console.log(res.data.user.roles[0])
+        } catch (error) {
+            this.setError(error.response.data)
+        }
+    }
+
+    async createPartner(name, email, phone){
+        try {
+            const res = await AuthService.createPartner(name, email, phone)
+            console.log(res);
         } catch (error) {
             console.log(error.response.data)
+            this.setError(error.response.data)
+        }
+    }
+
+    async getPartners(){
+        try {
+            const res = await AuthService.getPartners()
+            this.setPartners(res.data.partnerData)
+        } catch (error) {
+            this.setError(error.response.data)
+        }
+    }
+
+    async deletePartners(id){
+        try {
+            const res = await AuthService.deletePartners(id)
+            console.log(res)
+        } catch (error) {
             this.setError(error.response.data)
         }
     }

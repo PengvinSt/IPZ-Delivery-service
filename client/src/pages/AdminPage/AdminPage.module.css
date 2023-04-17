@@ -1,0 +1,9 @@
+.main {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin: 0 10px;
+    /* overflow: hidden; */
+}

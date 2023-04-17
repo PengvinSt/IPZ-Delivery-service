@@ -11,14 +11,6 @@
     z-index: 1;
 }
 
-.search-header {
-    width: 400px;
-    height: 40px;
-    border-radius: 35px;
-    outline: none;
-    font-size: 1.2em;
-    padding-left: 15px; 
-}
 .header-logo {
     font-size: 1.7em;
     font-weight: 700;
@@ -34,7 +26,23 @@
     background-color: var(--color-button-addition);
     cursor: pointer;
     border: none;
+    
 }
+
+.header-btn-2 {
+    height: 40px;
+    width: 140px;
+    border-radius: 35px;
+    color:var(--color-addition);
+    background-color: var(--color-button-addition);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
 .header-admin {
     height: 40px;
     width: 140px;

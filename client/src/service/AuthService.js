@@ -10,4 +10,13 @@ export default class AuthService {
     static async logout() {
         return api.post('/user/logout')
     }
+    static async createPartner (name, email, phone) {
+        return api.post('/user/partner', {name, email, phone})
+    }
+    static async getPartners () {
+        return api.get('/user/getpartner')
+    }
+    static async deletePartners (id) {
+        return api.post('/user/deletepartner', {id})
+    }
 }

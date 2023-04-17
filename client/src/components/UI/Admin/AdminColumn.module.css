@@ -1,0 +1,13 @@
+.admin-column {
+    height:80%;
+    width:15%;
+    border-radius:30px;
+    border:2px solid red;
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    padding:10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
