@@ -13,7 +13,7 @@ module.exports = function(roles) {
             decodedToken = jwt.verify(token, process.env.JWT_ACCESS_SECRET)
             
             const isAccess = decodedToken.roles.filter(role => role === roles)
-
+            
             if(isAccess.length === 0) {
                 return res.status(403).json({msg: "User not allowed"})
             }

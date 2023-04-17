@@ -1,9 +1,12 @@
 const bcrypt = require('bcrypt')
 const TokenService = require('./token-service.js')
 const UserSchema = require('../models/User/User.js')
+const PartnerSchema = require('../models/User/Partner.js')
 const UserClear = require('../utils/userClear.js')
 const RoleSchema = require('../models/User/Role.js')
 const ApiError = require('../utils/apiError.js')
+
+
 
 class UserService {
     async registration(username, email, password) {
@@ -61,6 +64,20 @@ class UserService {
         const userTokens = TokenService.createToken({...infoUser});
         await TokenService.saveToken(infoUser.id, userTokens.refreshToken)
         return {...userTokens, user:infoUser};
+    }
+
+    async createPartner(name, email, phone){
+        const partnerData = await PartnerSchema.create({name, email, phone})
+        return {partnerData}
+    }
+
+    async getPartners(){
+        const partnerData = await PartnerSchema.find()
+        return {partnerData}
+    }
+    async deletePartners(id){
+        const partnerData = await PartnerSchema.deleteOne({_id:id})
+        return {partnerData}
     }
 }
 

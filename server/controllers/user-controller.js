@@ -60,6 +60,39 @@ class UserController {
         }
     }
 
+    async createPartner(req, res, next) {
+        try {
+            const errors = validationResult(req)
+            if(!errors.isEmpty()){ 
+                const err = errors.array()[0];
+                return res.status(400).json(`Creation failed: invalid ${err.param}`)
+            }
+            const {name, email, phone} = req.body
+            const partnerData = await userService.createPartner(name, email, phone)
+            return res.json(partnerData)
+        } catch (error) {
+           next(error) 
+        }
+    }
+
+    async getPartners(req, res, next) {
+        try {
+            const partnerData = await userService.getPartners()
+            return res.json(partnerData)
+        } catch (error) {
+           next(error) 
+        }
+    }
+
+    async deletePartners(req, res, next) {
+        const {id} = req.body
+        try {
+           const partnerData = await userService.deletePartners(id)
+           return res.status(200).json(partnerData)
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = new UserController();
