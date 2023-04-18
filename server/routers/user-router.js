@@ -1,7 +1,7 @@
 const Router = require('express')
 const controller = require('../controllers/user-controller.js')
 const {body} = require('express-validator')
-// const roleMiddleware = require('../middleware/roleMiddleware.js')
+const roleMiddleware = require('../middleware/roleMiddleware.js')
 const router = new Router()
 
 router.post('/registration',
@@ -16,14 +16,15 @@ router.post('/logout', controller.logout)
 
 router.get('/refresh', controller.refresh)
 
+
 router.post('/partner',
 body('name').isLength({min:4}),
 body('email').isEmail(),
 body('phone').isLength({max:14, min:9})
 , controller.createPartner)
 
-router.get('/getpartner',controller.getPartners)
+router.get('/getpartner',roleMiddleware('ADMIN'),controller.getPartners)
 
-router.post('/deletepartner',controller.deletePartners)
+router.post('/deletepartner',roleMiddleware('ADMIN'),controller.deletePartners)
 
 module.exports = router;

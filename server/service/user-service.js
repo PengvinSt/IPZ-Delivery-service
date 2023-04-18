@@ -66,6 +66,7 @@ class UserService {
         return {...userTokens, user:infoUser};
     }
 
+
     async createPartner(name, email, phone){
         const partnerData = await PartnerSchema.create({name, email, phone})
         return {partnerData}

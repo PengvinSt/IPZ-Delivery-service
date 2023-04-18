@@ -20,6 +20,7 @@ class ProductService {
        const products = await ProductSchema.find()
        return {products};
     }
+
 }
 
 module.exports = new ProductService();

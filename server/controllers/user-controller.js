@@ -1,5 +1,6 @@
 const userService = require('../service/user-service.js');
 const {validationResult} = require('express-validator')
+const ApiError = require('../utils/apiError.js')
 
 class UserController {
     async registration(req, res,next) {
@@ -7,7 +8,8 @@ class UserController {
             const errors = validationResult(req)
             if(!errors.isEmpty()){ 
                 const err = errors.array()[0];
-                return res.status(400).json(`Registration failed: invalid ${err.param}`)
+                return res.status(400).json({message:`Registration failed: invalid ${err.param}`})
+                // return next(err)
             }
             const {username, email, password} = req.body;
             const userData = await userService.registration(username, email, password)
@@ -60,12 +62,13 @@ class UserController {
         }
     }
 
+
     async createPartner(req, res, next) {
         try {
             const errors = validationResult(req)
             if(!errors.isEmpty()){ 
                 const err = errors.array()[0];
-                return res.status(400).json(`Creation failed: invalid ${err.param}`)
+                return res.status(400).json({message:`Creation failed: invalid ${err.param}`})
             }
             const {name, email, phone} = req.body
             const partnerData = await userService.createPartner(name, email, phone)

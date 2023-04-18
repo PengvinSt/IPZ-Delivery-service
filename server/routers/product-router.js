@@ -4,8 +4,8 @@ const router = new Router()
 const roleMiddleware = require('../middleware/roleMiddleware.js')
 
 
-router.post('/createproducts',controller.postProduct)
-router.post('/deleteproduct', controller.deleteProduct)
+router.post('/createproducts',roleMiddleware('ADMIN'),controller.postProduct)
+router.post('/deleteproduct',roleMiddleware('ADMIN'), controller.deleteProduct)
 
 router.get('/getproducts',controller.getProducts)
 
