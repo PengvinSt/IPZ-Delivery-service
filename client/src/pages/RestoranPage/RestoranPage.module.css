@@ -35,7 +35,7 @@
     font-size: 1.2em;
     padding-left: 15px; 
 }
-/*------------------------- Items container & filter -------------------------*/
+/*------------------------- Items container -------------------------*/
 
 .item-container {
     display: flex;
@@ -55,42 +55,3 @@
     padding: 20px 10px;
     overflow-y: auto;
 }
-/* .shop-filter {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap:10px;
-    width: 15%;
-    background: var(--color-bg-addition);
-    color: var(--color-text);
-}
-.shop-filter button {
-    border-radius: 15px;
-    border-right: none;
-    border-left: none;
-    border-top: none;
-    
-    border-bottom: 3px solid var(--color-text-addition);
-    cursor: pointer;
-    width: 130px;
-    height: 40px;
-    text-align: center;
-}
-.shop-filter button:hover {
-    background-color: var(--color-button-addition);
-} */
-/*------------------------- Item card -------------------------*/
-/* .shop-props {
-    background: var(--color-bg-main);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-    max-width: 1400px;
-    max-height: 85vh;
-    min-height:300px;
-    min-width: 1000px;
-    margin: 0 auto;
-    padding: 20px 10px;
-    overflow-y: auto;
-  } */

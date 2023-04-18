@@ -4,7 +4,7 @@ import AdminColumn from '../../components/UI/Admin/AdminColumn'
 import classes from './AdminPage.module.css'
 import { Context } from '../../App'
 import { observer } from 'mobx-react-lite'
-// import ItemCard from '../../components/UI/ItemCard/ItemCard'
+
 
 
 export default observer(function AdminPage() {
@@ -22,7 +22,6 @@ export default observer(function AdminPage() {
       <div className={classes['main']}>
       <AdminColumn>
       {storeProduct.products.map((Product) =>
-        // <ItemCard link={storeProduct.link} name={storeProduct.name} price={storeProduct.price} key={storeProduct.name}/>
         <div key={Product.name}>
           <hr/>
           <p>{(Product.link.length === 0)? "No" : "Yes"} - link on photo</p>
@@ -44,7 +43,6 @@ export default observer(function AdminPage() {
           <hr/>
         </div>
         )}
-
       </AdminColumn>
       <AdminColumn>
         <p>Link(full)</p>

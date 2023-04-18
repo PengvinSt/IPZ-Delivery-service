@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 
 export default observer(function Cart(props) {
   const {storeProduct} = useContext(Context)
+  
   return (
     <div className={classes['cart']}>
     <div>
@@ -14,7 +15,6 @@ export default observer(function Cart(props) {
     <div className={classes['cart-items']} key={cart.id}>
       <div>{cart.name}</div>
       <div>{cart.price}</div>
-      {/* <div>{cart.id}</div> */}
       <button onClick={()=>{storeProduct.deleteCart(cart.id,cart.price)}}>X</button>
     </div>)}
     </div>

@@ -9,6 +9,7 @@ export default class StoreUser {
     partners = []
     role = "";
     isAuth = false;
+    error = '';
     constructor(){
         makeAutoObservable(this);
     }
@@ -35,9 +36,12 @@ export default class StoreUser {
         try {
             const res = await AuthService.login(username,password)
             localStorage.setItem('token', res.data.accessToken);
-            this.setAuth(true);
-            this.setUser(res.data.user);
-            this.setRole(res.data.user.roles[0])
+            if(res.status === 200){
+                this.setAuth(true);
+                this.setUser(res.data.user);
+                this.setRole(res.data.user.roles[0])
+                this.setError('')
+            }
         } catch (error) {
             this.setError(error.response.data.message)
         }
@@ -45,9 +49,11 @@ export default class StoreUser {
     async registration(username,email,password){
         try {
             const res = await AuthService.registration(username,email,password)
-            console.log(res);
+            if(res.status === 200){
+                this.setError('Successfully registered')
+            }
         } catch (error) {
-            this.setError(error.response.data)
+            this.setError(error.response.data.message)
         }
     }
     async logout(){
@@ -81,8 +87,7 @@ export default class StoreUser {
             const res = await AuthService.createPartner(name, email, phone)
             console.log(res);
         } catch (error) {
-            console.log(error.response.data)
-            this.setError(error.response.data)
+            this.setError(error.response.data.message)
         }
     }
 

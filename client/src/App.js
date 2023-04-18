@@ -17,7 +17,7 @@ export const Context = createContext({
 const App = observer(() =>{
   useEffect(()=>{
     if(localStorage.getItem('token')){
-      storeUser.checkAuth()
+     storeUser.checkAuth()
     }
   },[])
   

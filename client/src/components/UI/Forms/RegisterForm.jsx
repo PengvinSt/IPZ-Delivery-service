@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import {observer} from "mobx-react-lite"
 import { Context } from '../../../App'
 import classes from './Form.module.css'
+import Error from '../Error/Error'
 
 export default observer(function RegisterForm() {
     const {setRegister, storeUser} = useContext(Context)
@@ -28,13 +29,13 @@ export default observer(function RegisterForm() {
             <input type="password" id="password" onChange={el=>setPassword(el.target.value)} value={password}/>
             <label>Password</label>
         </div>
-        {/* <div className={classes['forgot-form']}>
-            <p>{storeUser.error}</p>
-        </div> */}
+        <div className={classes['forgot-form']}>
+            <Error/>
+        </div>
             <input type="submit" value="Register" className={classes['submit-form']} onClick={()=>{storeUser.registration(username, email, password)}}/>
         <div className={classes['register-form']}>
             <label>Have an account?</label>
-            <p onClick={()=>setRegister(true)}>Log in</p>
+            <p onClick={()=>{setRegister(true); storeUser.setError('')}}>Log in</p>
         </div>
     </div>
   )
